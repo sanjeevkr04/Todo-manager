@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import ProjectPage from './pages/ProjectPage'
 import LoadingPage from './pages/LoadingPage'
 import HomePage from './pages/HomePage'
@@ -9,7 +9,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {useUserState} from './hooks/useUserState';
 import Page404 from './pages/Page404'
-import { CircularProgress, Dialog, DialogContent } from '@material-ui/core'
+import { CircularProgress, Dialog } from '@material-ui/core'
 
   const theme = createMuiTheme({
     mixins: {
@@ -41,8 +41,8 @@ function App() {
   const [{user, init}, setUser] = useUserState();
   const [progress, setProgress] = useState(false);
 
-  useEffect(async () => { 
-    await checkAuthStateChanged(setUser, setProgress);
+  useEffect(() => { 
+    checkAuthStateChanged(setUser, setProgress);
   }, []);
 
   return (

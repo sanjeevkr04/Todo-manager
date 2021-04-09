@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import ProjectCard, {AddCard} from '../components/ProjectCard';
 import Header from '../components/Header';
@@ -89,7 +89,7 @@ function ProjectPage() {
 
                 if(result.data.nModified){
                     setProjects(pre => {
-                        const index = pre.findIndex(p => p._id == projectId)
+                        const index = pre.findIndex(p => p._id === projectId)
                         pre[index].title = newName
                         return [...pre]
                     })
@@ -101,14 +101,9 @@ function ProjectPage() {
         }
     }
 
-    useEffect(async () => {
-        try {
-            const result = await instance.get('/projects')
-            setProjects(result.data)
-        } catch (error) {
-            console.log(error);
-            setProjects([])
-        }
+    useEffect( () => {
+        
+        getProjects(setProjects);
 
         return () => {
             setProjects([])
@@ -168,6 +163,16 @@ function ProjectPage() {
             </div>
         </div>
     )
+}
+
+async function getProjects(setProjects){
+    try {
+        const result = await instance.get('/projects')
+        setProjects(result.data)
+    } catch (error) {
+        console.log(error);
+        setProjects([])
+    }
 }
 
 export default ProjectPage

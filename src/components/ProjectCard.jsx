@@ -1,6 +1,6 @@
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography'
-import {IconButton, fade, makeStyles, Menu, MenuItem, ListItemIcon, Tooltip } from '@material-ui/core'
+import {IconButton, fade, makeStyles, Menu, MenuItem, Tooltip } from '@material-ui/core'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';

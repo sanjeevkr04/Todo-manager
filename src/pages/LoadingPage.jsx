@@ -21,7 +21,7 @@ function LoadingPage() {
 
     return (
         <div className={classes.root}>
-            <img src={TodoIcon} width={128}/>
+            <img src={TodoIcon} alt='TODO Manager' width={128}/>
             <CircularProgress/>
         </div>
     )

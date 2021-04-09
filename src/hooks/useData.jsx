@@ -13,18 +13,14 @@ function useData({projectId}) {
 
     const [data, setData] = useState(emptyData)
 
-    useEffect(async () => {
-        try {
-            const result = await instance.get(`/project?project_id=${projectId}`)
-            setData(result.data)
-        } catch (error) {
-            console.log(error);
-            setData(null)
-        }
+    useEffect(() => {
+        
+        getProjectDetail(projectId, setData);
+
         return () => {
             setData(emptyData)
         }
-    }, [])
+    }, [projectId, emptyData])
 
     const update = async (source, destination) => {
         if(!destination) return;
@@ -46,7 +42,7 @@ function useData({projectId}) {
         })
 
         try {
-            const result = await instance.patch('/todo', {
+            await instance.patch('/todo', {
                 project_id: projectId,
                 source: source,
                 destination: destination,
@@ -118,6 +114,16 @@ function useData({projectId}) {
         edit: editTodo,
         delete: deleteTodo
     }]
+}
+
+async function getProjectDetail(projectId, setData){
+    try {
+        const result = await instance.get(`/project?project_id=${projectId}`)
+        setData(result.data)
+    } catch (error) {
+        console.log(error);
+        setData(null)
+    }
 }
 
 export default useData

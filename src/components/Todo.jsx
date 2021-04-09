@@ -113,8 +113,8 @@ function Todo({todo, max, index, boardId, actions}) {
                     onClose={() => {setAnchorE1(null)}}
                 >
                     <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
-                        <IconButton onClick={() => menuActions.move(boardId, index-1)} disabled={index == 0} size='small'><ArrowUpwardIcon/></IconButton>
-                        <IconButton onClick={() => menuActions.move(boardId, index+1)} disabled={index == max-1} size='small'><ArrowDownwardIcon/></IconButton>
+                        <IconButton onClick={() => menuActions.move(boardId, index-1)} disabled={index === 0} size='small'><ArrowUpwardIcon/></IconButton>
+                        <IconButton onClick={() => menuActions.move(boardId, index+1)} disabled={index === max-1} size='small'><ArrowDownwardIcon/></IconButton>
                     </div>
                     <Typography className={classes.menuTitle}>Move to</Typography>
                     <MenuItem onClick={() => menuActions.move('todos', 0)} style={{display: boardId === 'todos' ? 'none' : 'flex', color: 'lightcoral'}}>

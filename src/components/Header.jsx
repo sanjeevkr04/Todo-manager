@@ -1,19 +1,14 @@
-import {Fragment, useState} from 'react'
+import {useState} from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import Switch from '@material-ui/core/Switch';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import {useUserState} from '../hooks/useUserState';
-import {signInWithGoogle, signOut, anonymousAuthentication} from '../firebase';
-import { Button, Dialog, DialogContent, DialogTitle, Tooltip } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 import Profile from './Profile';
 
 const useStyles = makeStyles(theme => ({
@@ -54,9 +49,6 @@ const useStyles = makeStyles(theme => ({
   icons: {
     marginRight: theme.spacing(2)
   },
-  ["MuiIconButton-root"]: {
-    color: 'red'
-  }
 }));
 
 function Header() {

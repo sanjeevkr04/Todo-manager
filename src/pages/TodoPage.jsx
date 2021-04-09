@@ -4,7 +4,7 @@ import Board from './../components/Board'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { DragDropContext } from 'react-beautiful-dnd';
 import useData from '../hooks/useData';
-import { AppBar, Dialog, IconButton, Tab, Tabs, Typography, useMediaQuery } from '@material-ui/core';
+import { AppBar, IconButton, Tab, Tabs, Typography, useMediaQuery } from '@material-ui/core';
 import AlertDialog from '../components/AlertDialog'
 import { useState } from 'react';
 import CustomDialog from '../components/CustomDialog';
