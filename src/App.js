@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => { 
     checkAuthStateChanged(setUser, setProgress);
-  }, []);
+  }, [setUser]);
 
   return (
       <ThemeProvider theme={theme}>
