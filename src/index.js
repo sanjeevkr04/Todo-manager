@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import UserStateProvider from './hooks/useUserState'
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserStateProvider>
+      <App/>
+    </UserStateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
