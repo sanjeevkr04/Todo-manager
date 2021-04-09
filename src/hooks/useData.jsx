@@ -1,15 +1,15 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import instance from '../requests';
 
 function useData({projectId}) {
 
-    const emptyData = {
+    const emptyData = useMemo(() => ({
         _id: projectId,
         title: '',
         todos: [],
         in_process: [],
         completed: [],
-    }
+    }), [projectId])
 
     const [data, setData] = useState(emptyData)
 
