@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     container: {
+        display: 'flex',
         maxWidth: theme.spacing(144),
         width: '100%',
         [theme.breakpoints.down('md')]: {
@@ -113,7 +114,7 @@ function ProjectPage() {
     return (
         <div className={classes.page}>
             <Header />
-            <div className={classes.container}>
+            <div id="container" className={classes.container}>
                 <AddCard onClick={() => {setDialog({
                     open: true,
                     data: {

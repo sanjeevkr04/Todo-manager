@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 import {actionTypes} from './reducer'
 import instance, {signIn} from './requests';
 
@@ -23,9 +24,8 @@ export const signOut = () => {
     .then(() => {
         localStorage.clear()
         instance.defaults.headers.common['x-access-token'] = null;
-        console.log("Signed out sucessfully");
     }).catch(error => {
-        console.log(error);
+        // console.log(error);
     })
 }
 
@@ -57,10 +57,9 @@ export const checkAuthStateChanged = (dispatch, setProgress) => {
 
 export const signInWithGoogle = async () => {
     try {
-        const result = await firebase.auth().signInWithPopup(provider)
-        console.log("Signed in sucessfully as " + result.user.uid);
+        await firebase.auth().signInWithPopup(provider)
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 
@@ -73,7 +72,6 @@ export const addGoogleAccount = async () => {
             displayName: data.displayName,
             photoURL: data.photoURL,
         })
-        console.log("Signed in sucessfully");
     } catch (error) {
         console.log(error);
     }
