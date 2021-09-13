@@ -17,17 +17,20 @@ const useStyles = makeStyles(theme => ({
         }
     },
     container: {
-        display: 'flex',
-        maxWidth: theme.spacing(144),
-        width: '100%',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        width: theme.spacing(144),
         [theme.breakpoints.down('md')]: {
-            maxWidth: theme.spacing(108)
+            maxWidth: theme.spacing(108),
+            gridTemplateColumns: 'repeat(3, 1fr)',
         },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: theme.spacing(72)
+            maxWidth: theme.spacing(72),
+            gridTemplateColumns: 'repeat(2, 1fr)',
         },
         [theme.breakpoints.down('xs')]: {
-            maxWidth: theme.spacing(36)
+            maxWidth: theme.spacing(36),
+            gridTemplateColumns: '1fr',
         }
     }
 }));
